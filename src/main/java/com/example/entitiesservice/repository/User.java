@@ -5,16 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Getter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 public class User {
 
     private static final int MINIMUM_CREDENTIALS_SIZE = 3;
@@ -27,5 +25,6 @@ public class User {
     private String password;
     @Size(min = MINIMUM_CREDENTIALS_SIZE, max = MAXIMUM_CREDENTIALS_SIZE)
     private String username;
+    private int balance;
 
 }
